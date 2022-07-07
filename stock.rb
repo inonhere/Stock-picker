@@ -16,5 +16,5 @@ def stock_picker(prices)
     p 'sell on day: ' + y.to_s
 
 end
-stock_picker([2,10,20,1,100])
+stock_picker([17,3,6,9,15,8,6,1,10])
 
