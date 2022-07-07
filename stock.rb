@@ -1,22 +1,20 @@
 stock_prices = []
-array_buy = []
-array_sell = []
 
-def stock_picker(prices, array_b, array_s)
-    prices.each_cons(2) do |price_one, price_two|
-        if price_one < price_two
-            array_b.push(price_one)
-        elsif price_one > price_two
-            array_s.push(price_one)
-        end
+def stock_picker(prices)
+    min_i = prices.index(prices.min)
+    max_i = prices.index(prices.max)
+    if prices.index(prices.max) == 0
+        max_i = prices.index(prices.max(2)[1])
     end
-    p array_b
-    p array_s
+    if prices.index(prices.min) > max_i
+        min_i = prices.index(prices.min(2)[1])
+    end
+    min = prices.min
+    x = min_i + 1
+    y = max_i + 1
+    p 'buy on day: ' + x.to_s
+    p 'sell on day: ' + y.to_s
+
 end
-stock_picker([17,3,6,9,15,8,6,1,10], array_buy, array_sell)
-=begin 
-prices.each do |price|
-    p price
-    arrayF.push(price < 2)
-end
-=end
+stock_picker([2,10,20,1,100])
+
